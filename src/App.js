@@ -18,10 +18,14 @@ class App extends Component {
   }
   
   componentDidMount() {
-    base.syncState(`/${this.state.pseudo}/recettes`, {
+    this.ref = base.syncState(`/${this.state.pseudo}/recettes`, {
       context: this,
       state: 'recettes'
     })
+  }
+  //Comment
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
   }
 
   chargerExemple = () => this.setState({ recettes })
