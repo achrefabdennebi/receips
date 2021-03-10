@@ -23,10 +23,15 @@ class App extends Component {
       state: 'recettes'
     })
   }
-  
-  // Add comment
+
   componentWillUnmount() {
     base.removeBinding(this.ref);
+  }
+
+  ajouterRecette = recette => {
+    const recettes = { ...this.state.recettes };
+    recettes[`recette-${Date.now()}`] = recette;
+    this.setState({ recettes });
   }
 
   chargerExemple = () => this.setState({ recettes })
@@ -40,7 +45,8 @@ class App extends Component {
         <div className='cards'>
           { cards }
         </div>
-        <Admin chargerExemple={this.chargerExemple}/>
+        <Admin  ajouterRecette= { this.ajouterRecette }
+                chargerExemple={this.chargerExemple}/>
       </div>
     )
   }
