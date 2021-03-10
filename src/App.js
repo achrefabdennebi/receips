@@ -24,6 +24,7 @@ class App extends Component {
     })
   }
   
+  // Add comment
   componentWillUnmount() {
     base.removeBinding(this.ref);
   }
