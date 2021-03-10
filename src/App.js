@@ -23,7 +23,7 @@ class App extends Component {
       state: 'recettes'
     })
   }
-  //Comment
+  
   componentWillUnmount() {
     base.removeBinding(this.ref);
   }
